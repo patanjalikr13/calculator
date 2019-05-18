@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
+import {connect} from "react-redux";
 import './App.css';
+import Table from './components/Table';
+class  App extends React.Component {
 
-function App() {
+  render(){
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="m-3 container">
+      <Table/>
+      </div>
     </div>
   );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) =>{
+return state;
+}
+
+const mapDispatchToProps = (dispatch) =>{
+
+  return {
+
+
+    increment : (action)=>{
+      dispatch(action);
+    }
+
+
+  }
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
